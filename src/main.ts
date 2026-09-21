@@ -15,13 +15,13 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('API de Productos')
-    .setDescription('CRUD de productos — Semana 2, Integracion de Sistemas')
+    .setTitle('API de Productos (con persistencia)')
+    .setDescription('CRUD de productos sobre PostgreSQL + TypeORM')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
