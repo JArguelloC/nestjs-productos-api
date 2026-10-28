@@ -39,3 +39,20 @@ Usaría la política **FULL (Compatibilidad Total: Backward + Forward)**, o al m
   * Un cambio que rompa el contrato (como volver obligatorio un campo nuevo como `categoria` sin valor por defecto) detendría de golpe las integraciones de los 5 clientes externos, provocando incidentes en producción.
   * Por tanto, la regla de oro con consumidores externos es: **campos nuevos siempre opcionales**, **no eliminar campos existentes** y **no cambiar tipos de datos**, garantizando una transición suave.
 
+---
+
+### Declaración de uso de IA
+- **Herramienta(s):** Antigravity AI Assistant (Google DeepMind).
+- **Nivel de uso:** Asistencia técnica y depuración puntual de configuración y entorno de ejecución.
+- **Qué se le pidió:**
+  1. Diagnosticar y corregir errores de compilación TypeScript con `ajv` y `ajv-formats` bajo ESM / `NodeNext` en el Paso 3.
+  2. Ajustar la sintaxis de importación de archivos `.json` en `productos.controller.ts` y la configuración de `tsconfig.json`.
+  3. Proporcionar los comandos de terminal exactos para verificar las respuestas HTTP 400 y 201 en los Pasos 4 y 5 evitando problemas de escape de comillas en PowerShell.
+  4. Adaptar el script `check-compatibility.js` a módulos ESM para ejecutar el Paso 6.
+  5. Redactar las respuestas de análisis y comparación para la bitácora del Paso 7.
+- **Qué se modificó/verificó manualmente:**
+  1. Creación inicial de los esquemas `producto.schema.json` (v1) y `producto.schema.v2.json`.
+  2. Modificación de `producto.schema.v3-breaking.json` para hacer obligatorio el campo `categoria`.
+  3. Ejecución directa en terminal de las peticiones HTTP contra la API en ejecución para comprobar el error `400` y la creación `201`.
+  4. Ejecución del script `check-compatibility.js` en consola, confirmando visualmente los veredictos `compatible: false` y `compatible: true`.
+  5. Revisión y validación de los argumentos conceptuales plasmados en la bitácora.
